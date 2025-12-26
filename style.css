@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -47,7 +47,7 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -55,10 +55,11 @@ body {
     align-items: center;
 }
 
-.nav-logo span {
+.nav-logo a {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-decoration: none;
 }
 
 .nav-menu {
@@ -123,10 +124,11 @@ body {
     align-items: center;
 }
 .hero img {
-    width: 340px;
+    width: 330px;
     height: 400px;
     border-radius: 50%;
     box-shadow: var(--shadow);
+    margin-right: -20px;
 }
 .greeting {
     display: block;
