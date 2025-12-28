@@ -46,45 +46,70 @@ window.addEventListener('scroll', () => {
 // Certificate Modal Functions
 const certData = {
     cert1: {
-        title: "Industry 4.0 and IoT",
-        issuer: "NPTEL"
+        title: "FullStack Developer Intern",
+        issuer: "Pragmatiqs",
+        type: "image",
+        src: "certificates/PRAGMATICS.png"
     },
     cert2: {
-        title: "Social Network Analysis",
-        issuer: "NPTEL"
+        title: "Data Analytics Job Simulation",
+        issuer: "Deloitte",
+        type: "image",
+        src: "certificates/Deloitte.png"
     },
     cert3: {
-        title: "Dynamic Defenses in Network Security",
-        issuer: "ICRICT 2024 (Paper Presentation)"
+        title: "PowerBI - Workshop",
+        issuer: "Office Master",
+        type: "pdf",
+        src: "certificates/PowerBI.png"
     },
     cert4: {
         title: "Communication & Soft Skills",
-        issuer: "JKC"
+        issuer: "JKC",
+        type: "image",
+        src: "certificates/soft_skills.jpg"
     },
     cert5: {
         title: "Employability Skills Training",
-        issuer: "NAANDI (Mahindra Pride Classroom)"
+        issuer: "NAANDI (Mahindra Pride Classroom)",
+        type: "image",
+        src: "certificates/employability_skills.jpg"
     }
 };
 
 function openModal(certId) {
     const modal = document.getElementById('certModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalIssuer = document.getElementById('modalIssuer');
-    
-    if (certData[certId]) {
-        modalTitle.textContent = certData[certId].title;
-        modalIssuer.textContent = certData[certId].issuer;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+    const title = document.getElementById('modalTitle');
+    const issuer = document.getElementById('modalIssuer');
+    const img = document.getElementById('certImage');
+    const pdf = document.getElementById('certPDF');
+
+    img.style.display = "none";
+    pdf.style.display = "none";
+
+    const cert = certData[certId];
+    if (!cert) return;
+
+    title.textContent = cert.title;
+    issuer.textContent = cert.issuer;
+
+    if (cert.type === "image") {
+        img.src = cert.src;
+        img.style.display = "block";
+    } else {
+        pdf.src = cert.src;
+        pdf.style.display = "block";
     }
+
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
-    const modal = document.getElementById('certModal');
-    modal.style.display = 'none';
+    document.getElementById('certModal').style.display = 'none';
     document.body.style.overflow = 'auto';
 }
+
 
 // Close modal when clicking outside of it
 window.addEventListener('click', (event) => {
